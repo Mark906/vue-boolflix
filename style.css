@@ -25,7 +25,7 @@
 }
 
 .movie-zone {
-    flex-grow: 1;
+    height: calc(100vh - 70px);
     background-color: black;
     overflow: auto;
 }
