@@ -74,6 +74,14 @@
     width: 100%;
 }
 
+.stars {
+    text-align: center;
+}
+
+.stars .fas {
+    color: gold;
+}
+
 .card:hover {
     box-shadow: 0 10px 50px -5px rgba(51,71,91,0.12);
     transform: scale(1.06);
