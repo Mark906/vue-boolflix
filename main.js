@@ -4,8 +4,7 @@ const api_key = 'bd2a9dc4670609b1dcc9d5fd6281d9bc';
 var app = new Vue({
     el: '#root',
     data: {
-        movie: [],
-        value_star: 0
+        movie: []
     },
 
     mounted() {
@@ -13,7 +12,7 @@ var app = new Vue({
         axios.get(api_url_base + 'search/movie', {
             params: {
                 api_key: api_key,
-                query: 'spiderman'
+                query: 'pippo'
             }
         }).then((risposta) => {
                 console.log(risposta);
@@ -23,7 +22,8 @@ var app = new Vue({
     },
     methods: {
         calcolaStars(index){
-            return this.value_star = Math.round((this.movie[index].vote_average) / 2);
+            let value_star = 0;
+            return value_star = Math.round((this.movie[index].vote_average) / 2);
 
         }
     }

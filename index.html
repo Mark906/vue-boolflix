@@ -23,26 +23,22 @@
                         <div v-for="(item,index) in movie" class="card">
                             <h3>{{item.title}}</h3>
                             <p>{{item.original_title}}</p>
-                            <div v-if="item.original_language == 'en'" class="language">
-                                <img src="img/bandiera-inghilterra.png" alt="">
-                            </div>
-                            <div v-if="item.original_language == 'it'" class="language">
-                                <img src="img/bandiera-italia.png" alt="">
-                            </div>
-                            <div v-if="item.original_language == 'fr'" class="language">
-                                <img src="img/bandiera-francia.svg" alt="">
-                            </div>
-                            <div v-if="item.original_language == 'de'" class="language">
-                                <img src="img/bandiera-germania.jpg" alt="">
-                            </div>
+
                             <div class="language">
                                 <p>{{item.original_language}}</p>
+                                <img :src=" 'img/bandiera-' + item.original_language + '.png' " alt="">
                             </div>
-                            <div class="stars">
-                                <small v-if="calcolaStars(index) == 0 ">NaN</small>
+
+
+                            <div v-if="calcolaStars(index) > 0" class="stars">
                                 <i v-for="item in calcolaStars(index)" class="fas fa-star"></i>
                                 <i v-for="item in (5 - calcolaStars(index))" class="far fa-star"></i>
                             </div>
+                            <div v-else="calcolaStars(index) == 0" class="stars">
+                                <p>NaN</p>
+                            </div>
+
+
                     </div>
                 </div>
 
