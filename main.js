@@ -1,5 +1,7 @@
 const api_url_base = 'https://api.themoviedb.org/3/';
 const api_key = 'bd2a9dc4670609b1dcc9d5fd6281d9bc';
+const casualsearch = Math.floor(Math.random() * 5) + 1
+const film = ["pippo", "natale", "estate", "inverno", "horror"];
 
 var app = new Vue({
     el: '#root',
@@ -12,7 +14,7 @@ var app = new Vue({
         axios.get(api_url_base + 'search/movie', {
             params: {
                 api_key: api_key,
-                query: 'pippo'
+                query: film[casualsearch]
             }
         }).then((risposta) => {
                 console.log(risposta);
@@ -22,8 +24,7 @@ var app = new Vue({
     },
     methods: {
         calcolaStars(index){
-            let value_star = 0;
-            return value_star = Math.round((this.movie[index].vote_average) / 2);
+            return Math.round((this.movie[index].vote_average) / 2);
 
         }
     }
