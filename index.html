@@ -23,7 +23,22 @@
                         <div v-for="item in movie" class="card">
                             <h3>{{item.title}}</h3>
                             <p>{{item.original_title}}</p>
-                            <p>{{item.original_language}}</p>
+                            <div v-if="item.original_language == 'en'" class="language">
+                                <img src="img/bandiera-inghilterra.png" alt="">
+                            </div>
+                            <div v-if="item.original_language == 'it'" class="language">
+                                <img src="img/bandiera-italia.png" alt="">
+                            </div>
+                            <div v-if="item.original_language == 'fr'" class="language">
+                                <img src="img/bandiera-francia.png" alt="">
+                            </div>
+                            <div v-if="item.original_language == 'de'" class="language">
+                                <img src="img/bandiera-germania.png" alt="">
+                            </div>
+                            <div class="language">
+                                <p>{{item.original_language}}</p>
+                            </div>
+
                             <p v-if="item.vote_average == 0">NaN</p>
                             <p v-if="item.vote_average == 1">
                                 <i class="fas fa-star"></i>

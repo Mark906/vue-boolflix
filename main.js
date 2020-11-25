@@ -12,7 +12,7 @@ var app = new Vue({
         axios.get(api_url_base + 'search/movie', {
             params: {
                 api_key: api_key,
-                query: 'batman'
+                query: 'spiderman'
             }
         }).then((risposta) => {
                 console.log(risposta);
