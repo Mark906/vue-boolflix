@@ -42,6 +42,10 @@
     flex-wrap: wrap;
 }
 
+.card-container p {
+    color: white;
+}
+
 .card {
     width: 197px;
     height: 300px;
