@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" charset="utf-8"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="root">
+
+            <div id="wrapper">
+
+                <div class="navbar">
+                    <input class="search-input" type="text" name="" value="">
+                </div>
+
+                <div class="movie-zone">
+                    <div class="card-container">
+
+                        <div v-for="item in movie" class="card">
+                            <div class="img">
+                                <img :src="item.poster_path" alt="">
+                            </div>
+                            <h3>{{item.title}}</h3>
+                            <p>{{item.original_title}}</p>
+                            <p>{{item.original_language}}</p>
+                            <p>{{item.vote_avarage}}</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <script src="main.js" charset="utf-8"></script>
+    </body>
+</html>
