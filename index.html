@@ -6,6 +6,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" charset="utf-8"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     </head>
     <body>
         <div id="root">
@@ -20,13 +21,29 @@
                     <div class="card-container">
 
                         <div v-for="item in movie" class="card">
-                            <div class="img">
-                                <img :src="item.poster_path" alt="">
-                            </div>
                             <h3>{{item.title}}</h3>
                             <p>{{item.original_title}}</p>
                             <p>{{item.original_language}}</p>
-                            <p>{{item.vote_avarage}}</p>
+                            <p v-if="item.vote_average == 0">NaN</p>
+                            <p v-if="item.vote_average == 1">
+                                <i class="fas fa-star"></i>
+                                <i v-for="item in 4" class="far fa-star"></i>
+                            </p>
+                            <p v-if="item.vote_average == 2">
+                                <i v-for="item in 2" class="fas fa-star"></i>
+                                <i v-for="item in 3" class="far fa-star"></i>
+                            </p>
+                            <p v-if="item.vote_average == 3">
+                                <i v-for="item in 3" class="fas fa-star"></i>
+                                <i v-for="item in 2" class="far fa-star"></i>
+                            </p>
+                            <p v-if="item.vote_average == 4">
+                                <i v-for="item in 4" class="fas fa-star"></i>
+                                <i v-for="item in 1" class="far fa-star"></i>
+                            </p>
+                            <p v-if="item.vote_average == 5">
+                                <i v-for="item in 5" class="fas fa-star"></i>
+                            </p>
                         </div>
 
                     </div>

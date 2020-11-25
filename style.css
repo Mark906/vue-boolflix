@@ -42,23 +42,27 @@
     background-color: #212121;
     margin: 20px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .card h3 {
     text-align: center;
-    margin-top: 7%;
     text-transform: uppercase;
     color: white;
     font-size: 14px;
     letter-spacing: 2px;
+    padding: 10px;
 }
 
 .card p {
     text-align: center;
-    margin-top: 5%;
     color: white;
     font-size: 14px;
     letter-spacing: 1px;
+    padding: 10px;
+}
 }
 
 .card:hover {
@@ -67,17 +71,4 @@
     transition: 0.3s;
     background-color: #282828;
 
-}
-
-.card .img {
-
-    background-color: black;
-    height: 115px;
-    width: 115px;
-    margin: 0 auto;
-    margin-top: 13%;
-}
-
-.img img {
-    width: 100%;
 }
