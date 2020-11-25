@@ -23,7 +23,6 @@ var app = new Vue({
     },
     methods: {
         calcolaStars(index){
-            if(this.movie[index].vote_average == null) { return "NaN"}
             return this.value_star = Math.round((this.movie[index].vote_average) / 2);
 
         }
