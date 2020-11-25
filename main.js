@@ -5,6 +5,7 @@ var app = new Vue({
     el: '#root',
     data: {
         movie: [],
+        value_star: 0
     },
 
     mounted() {
@@ -19,11 +20,18 @@ var app = new Vue({
                 this.movie = risposta.data.results;
                 console.log(this.movie);
                 for(let i=0; i<this.movie.length; i++){
-                    this.movie[i].vote_average = Math.round((this.movie[i].vote_average) / 2);
+                    this.stars[i] = Math.round((this.movie[i].vote_average) / 2);
                 }
                 for(let i=0; i<this.movie.length; i++){
                     console.log(this.movie[i].vote_average);
                 }
             });
+    },
+    methods: {
+        calcolaStars(index){
+            let value = 0;
+            return this.value_star = Math.round((this.movie[index].vote_average) / 2);
+
+        }
     }
 });

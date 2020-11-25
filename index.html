@@ -20,12 +20,12 @@
                 <div class="movie-zone">
                     <div class="card-container">
 
-                        <div v-for="item in movie" class="card">
+                        <div v-for="(item,index) in movie" class="card">
                             <h3>{{item.title}}</h3>
                             <p>{{item.original_title}}</p>
                             <div v-if="item.original_language == 'en'" class="language">
                                 <img src="img/bandiera-inghilterra.png" alt="">
-                            </div>
+                            </div> 
                             <div v-if="item.original_language == 'it'" class="language">
                                 <img src="img/bandiera-italia.png" alt="">
                             </div>
@@ -38,29 +38,10 @@
                             <div class="language">
                                 <p>{{item.original_language}}</p>
                             </div>
-
-                            <p v-if="item.vote_average == 0">NaN</p>
-                            <p v-if="item.vote_average == 1">
-                                <i class="fas fa-star"></i>
-                                <i v-for="item in 4" class="far fa-star"></i>
-                            </p>
-                            <p v-if="item.vote_average == 2">
-                                <i v-for="item in 2" class="fas fa-star"></i>
-                                <i v-for="item in 3" class="far fa-star"></i>
-                            </p>
-                            <p v-if="item.vote_average == 3">
-                                <i v-for="item in 3" class="fas fa-star"></i>
-                                <i v-for="item in 2" class="far fa-star"></i>
-                            </p>
-                            <p v-if="item.vote_average == 4">
-                                <i v-for="item in 4" class="fas fa-star"></i>
-                                <i v-for="item in 1" class="far fa-star"></i>
-                            </p>
-                            <p v-if="item.vote_average == 5">
-                                <i v-for="item in 5" class="fas fa-star"></i>
-                            </p>
-                        </div>
-
+                            <div class="stars">
+                                <i v-for="item in calcolaStars(index)" class="fas fa-star"></i>
+                                <i v-for="item in (5 - calcolaStars(index))" class="far fa-star"></i>
+                            </div>
                     </div>
                 </div>
 
