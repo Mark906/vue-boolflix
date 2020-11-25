@@ -18,13 +18,7 @@ var app = new Vue({
         }).then((risposta) => {
                 console.log(risposta);
                 this.movie = risposta.data.results;
-                console.log(this.movie);
-                for(let i=0; i<this.movie.length; i++){
-                    this.stars[i] = Math.round((this.movie[i].vote_average) / 2);
-                }
-                for(let i=0; i<this.movie.length; i++){
-                    console.log(this.movie[i].vote_average);
-                }
+                console.log(this.movie)
             });
     },
     methods: {
