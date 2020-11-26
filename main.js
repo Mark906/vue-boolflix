@@ -7,7 +7,7 @@ var app = new Vue({
     data: {
         movie: [],
         //length: 0
-        languages: ["de", "en", "fr", "it"]
+        languages: ["de", "en", "fr", "it", "pt"]
     },
 
     mounted() {
