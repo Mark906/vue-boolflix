@@ -5,8 +5,9 @@ const film = ["pippo", "natale", "estate", "inverno", "horror"];
 var app = new Vue({
     el: '#root',
     data: {
-        movie: []
+        movie: [],
         //length: 0
+        languages: ["de", "en", "fr", "it"]
     },
 
     mounted() {
@@ -28,8 +29,17 @@ var app = new Vue({
         calcolaStars(index){
             return Math.round((this.movie[index].vote_average) / 2);
 
-        }
+        },
 
+        checkLanguages(m,i){
+            let bool;
+            for(let index = 0; index < this.languages.length; index++){
+                if(m[i].original_language == this.languages[index]){
+                    return bool = true;
+                }
+            }
+            return bool = false;
+        }
         //movielength(){
             //let bool = true;
             //setTimeout(function(){

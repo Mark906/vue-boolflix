@@ -24,9 +24,11 @@
                             <h3>{{item.title}}</h3>
                             <p>{{item.original_title}}</p>
 
-                            <div class="language">
-                                <p>{{item.original_language}}</p>
+                            <div v-if="checkLanguages(movie, index)" class="language">
                                 <img :src=" 'img/bandiera-' + item.original_language + '.png' " alt="">
+                            </div>
+                            <div v-else class="language">
+                                <p>{{item.original_language}}</p>
                             </div>
 
 

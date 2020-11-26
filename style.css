@@ -107,6 +107,7 @@
 
 .stars .far {
     color: white;
+    transform: translateX(-4px);
 }
 
 .card:hover {
