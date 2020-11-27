@@ -20,24 +20,30 @@
             <div class="movie-zone">
                 <div v-if="movie.length > 0" class="card-container">
                     <div v-for="(item,index) in movie" class="card">
-                        <h3>{{item.title ? item.title : item.name}}</h3>
-                        <p>{{item.original_title ? item.original_title : item.original_name}}</p>
+                        <div class="card-forward">
+                            <img :src="get_url_poster(item.poster_path)" alt="">
+                        </div>
+                        <div class="card-behind">
+                            <h3>{{item.title ? item.title : item.name}}</h3>
+                            <p>{{item.original_title ? item.original_title : item.original_name}}</p>
 
-                        <div v-if="checkLanguages(movie, index)" class="language">
-                            <img :src=" 'img/bandiera-' + item.original_language + '.png' " alt="">
-                        </div>
-                        <div v-else class="language">
-                            <p>{{item.original_language}}</p>
-                        </div>
+                            <div v-if="checkLanguages(movie, index)" class="language">
+                                <img :src=" 'img/bandiera-' + item.original_language + '.png' " alt="">
+                            </div>
+                            <div v-else class="language">
+                                <p>{{item.original_language}}</p>
+                            </div>
 
 
-                        <div v-if="calcolaStars(index) > 0" class="stars">
-                            <i v-for="item in calcolaStars(index)" class="fas fa-star"></i>
-                            <i v-for="item in (5 - calcolaStars(index))" class="far fa-star"></i>
+                            <div v-if="calcolaStars(index) > 0" class="stars">
+                                <i v-for="item in calcolaStars(index)" class="fas fa-star"></i>
+                                <i v-for="item in (5 - calcolaStars(index))" class="far fa-star"></i>
+                            </div>
+                            <div v-else="calcolaStars(index) == 0" class="stars">
+                                <p>NaN</p>
+                            </div>
                         </div>
-                        <div v-else="calcolaStars(index) == 0" class="stars">
-                            <p>NaN</p>
-                        </div>
+
                     </div>
 
                 </div>
