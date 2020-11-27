@@ -65,12 +65,15 @@ var app = new Vue({
         },
 
         get_url_poster(path) {
+            let poster = '';
             if(path) { //se il valore esiste
                 //ritorna poster
-                return url_base_poster + dimensione_poster + path;
-            }
+                poster = url_base_poster + dimensione_poster + path;
+            } else {
             //altrimenti ritorna poster non disponibile
-            return poster_not_avaiable;
+            poster = poster_not_avaiable;
+            }
+            return poster;
         }
-    }
+    }//Fine methods
 });
