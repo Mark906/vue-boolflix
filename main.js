@@ -7,8 +7,6 @@ var app = new Vue({
     el: '#root',
     data: {
         movie: [],
-        serie: [],
-        movie_serie: [],
         languages: ["de", "en", "fr", "it", "pt"],
         isRicercaFatta : false,
         searchInput : '  '
@@ -17,6 +15,8 @@ var app = new Vue({
         ricerca() {
 
             var ricerca = this.searchInput;
+
+            this.movie = [];
 
             axios.get(api_url_base + 'search/movie', {
                 params: {
@@ -28,7 +28,7 @@ var app = new Vue({
                     this.isRicercaFatta = true;
 
                     console.log(risposta);
-                    this.movie = risposta.data.results;
+                    this.movie = this.movie.concat(risposta.data.results);
                     console.log(this.movie)
 
                 });
@@ -43,9 +43,10 @@ var app = new Vue({
                     this.isRicercaFatta = true;
 
                     console.log(risposta);
-                    this.serie = risposta.data.results;
+                    //this.serie = risposta.data.results;
                     console.log(this.movie)
-                    this.movie_serie = this.movie.concat(this.serie)
+                    //this.movie_serie = this.movie.concat(this.serie);
+                    this.movie = this.movie.concat(risposta.data.results);
                 });
         },
         calcolaStars(index){

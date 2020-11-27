@@ -19,7 +19,7 @@
 
             <div class="movie-zone">
                 <div v-if="movie.length > 0" class="card-container">
-                    <div v-for="(item,index) in movie_serie" class="card">
+                    <div v-for="(item,index) in movie" class="card">
                             <div class="card-forward">
                                 <img :src="get_url_poster(item.poster_path)" alt="">
                             </div>
