@@ -7,6 +7,8 @@ var app = new Vue({
     el: '#root',
     data: {
         movie: [],
+        serie: [],
+        movie_serie: [],
         languages: ["de", "en", "fr", "it", "pt"],
         isRicercaFatta : false,
         searchInput : '  '
@@ -41,9 +43,9 @@ var app = new Vue({
                     this.isRicercaFatta = true;
 
                     console.log(risposta);
-                    this.movie = risposta.data.results;
+                    this.serie = risposta.data.results;
                     console.log(this.movie)
-
+                    this.movie_serie = this.movie.concat(this.serie)
                 });
         },
         calcolaStars(index){
