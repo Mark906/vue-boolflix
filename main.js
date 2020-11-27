@@ -2,7 +2,7 @@ const api_url_base = 'https://api.themoviedb.org/3/';
 const api_key = 'bd2a9dc4670609b1dcc9d5fd6281d9bc';
 const url_base_poster = 'https://image.tmdb.org/t/p/';
 const dimensione_poster = 'w185';
-const poster_not_avaiable = 'img/poster_not_avaiable.jpg'
+const poster_not_avaiable = 'img/poster-not-avaiable.jpg'
 var app = new Vue({
     el: '#root',
     data: {
