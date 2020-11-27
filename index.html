@@ -14,14 +14,14 @@
         <div id="wrapper">
 
             <div class="navbar">
-                <input v-model="searchInput" class="search-input" type="text" @keyup.enter="ricerca()" placeholder="  Cerca qui.">
+                <input v-model="searchInput" class="search-input" type="text" @keyup.enter="ricerca()">
             </div>
 
             <div class="movie-zone">
                 <div v-if="movie.length > 0" class="card-container">
                     <div v-for="(item,index) in movie" class="card">
-                        <h3>{{item.title}}</h3>
-                        <p>{{item.original_title}}</p>
+                        <h3>{{item.title ? item.title : item.name}}</h3>
+                        <p>{{item.original_title ? item.original_title : item.original_name}}</p>
 
                         <div v-if="checkLanguages(movie, index)" class="language">
                             <img :src=" 'img/bandiera-' + item.original_language + '.png' " alt="">
@@ -47,7 +47,7 @@
                 </div>
 
                 <div v-else class="card-container">
-                    <p class="notResults">Non abbiamo fatto alcuna ricerca</p>
+                    <p class="notResults">Non abbiamo fatto alcuna ricerca.</p>
                 </div>
 
             </div>
